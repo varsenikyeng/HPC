@@ -197,6 +197,7 @@ void* thread_simd_count(void *arg){
 }
 
 int main(){
+	pthread_mutex_init(&mutex, NULL);
 	srand(time(NULL));
 	unsigned char *dna = malloc(DNA_SIZE);
 
@@ -289,6 +290,6 @@ int main(){
 	
 	printf("SIMD + Multithreading time: %f sec\n", passed);
 	free(dna);
-	
+	pthread_mutex_destroy(&mutex);
 	return 0;
 }
